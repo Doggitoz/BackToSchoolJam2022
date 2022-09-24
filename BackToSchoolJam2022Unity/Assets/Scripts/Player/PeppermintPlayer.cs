@@ -38,7 +38,10 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     void Update()
     {
-        MovementUpdate();
+        if (photonView.IsMine)
+        {
+            MovementUpdate();
+        }
     }
 
     private void MovementUpdate()

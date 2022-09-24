@@ -65,6 +65,11 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
     void Update()
     {
 
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         if (fellInJello)
         {
             return;

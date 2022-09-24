@@ -10,8 +10,7 @@ using Photon.Pun;
 using Photon.Realtime;
 
 
-namespace Com.MyCompany.MyGame
-{
+
     public class GameManager : MonoBehaviourPunCallbacks
     {
 
@@ -113,5 +112,9 @@ namespace Com.MyCompany.MyGame
 
         #endregion
 
+        public void ResetScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
     }
-}

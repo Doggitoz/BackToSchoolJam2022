@@ -106,18 +106,21 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (BasicPlayerMovement.LocalPlayerInstance == null)
         {
             Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
+
+            PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
+
             // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-            if (playersSpawned == 0)
-            {
-                Debug.Log("Supposed to spawn gummy");
-                PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
-                playersSpawned = 1;
-            } 
-            else
-            {
-                Debug.Log("Supposed to spawn peppermint");
-                PhotonNetwork.Instantiate(this.peppermintPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
-            }
+            //if (playersSpawned == 0)
+            //{
+            //    Debug.Log("Supposed to spawn gummy");
+            //    PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
+            //    playersSpawned = 1;
+            //} 
+            //else
+            //{
+            //    Debug.Log("Supposed to spawn peppermint");
+            //    PhotonNetwork.Instantiate(this.peppermintPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
+            //}
         }
         else
         {

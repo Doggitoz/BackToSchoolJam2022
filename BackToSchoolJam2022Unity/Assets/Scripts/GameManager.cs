@@ -112,11 +112,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                 Debug.Log("Supposed to spawn gummy");
                 PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
             }
-            else
-            {
-                Debug.Log("Supposed to spawn peppermint");
-                PhotonNetwork.Instantiate(this.peppermintPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
-            }
         }
         else
         {

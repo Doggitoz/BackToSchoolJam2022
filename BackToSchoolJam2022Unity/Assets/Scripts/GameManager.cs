@@ -11,8 +11,8 @@ using Photon.Realtime;
 
 
 
-    public class GameManager : MonoBehaviourPunCallbacks
-    {
+public class GameManager : MonoBehaviourPunCallbacks
+{
 
         #region GameManager Singleton
         static private GameManager gm; //refence GameManager
@@ -77,12 +77,13 @@ using Photon.Realtime;
             }
         }
 
-        #endregion
+    #endregion
 
 
         #region Public Methods
 
-
+        [Tooltip("The prefab to use for representing the player")]
+        public GameObject playerPrefab;
         public void LeaveRoom()
         {
             PhotonNetwork.LeaveRoom();
@@ -96,10 +97,24 @@ using Photon.Realtime;
             CheckGameManagerIsInScene();
         }
 
-        #region Private Methods
+    private void Start()
+    {
+        if (BasicPlayerMovement.LocalPlayerInstance == null)
+        {
+            Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
+            // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
+            PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
+        }
+        else
+        {
+            Debug.LogFormat("Ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
+        }
+    }
+
+    #region Private Methods
 
 
-        void LoadArena()
+    void LoadArena()
         {
             if (!PhotonNetwork.IsMasterClient)
             {
@@ -116,5 +131,4 @@ using Photon.Realtime;
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-
-    }
+}

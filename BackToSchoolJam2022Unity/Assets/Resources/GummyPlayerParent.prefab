@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 800704975505300810}
   - component: {fileID: 800704975505300823}
-  - component: {fileID: 800704975505300812}
   - component: {fileID: 800704975505300815}
   m_Layer: 0
   m_Name: GummyPlayerParent
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -52,32 +51,6 @@ MonoBehaviour:
   maxVertVelocity: 15
   GummyBearObject: {fileID: 6479683911793956516}
   GumDropObject: {fileID: 6479683910907371519}
---- !u!61 &800704975505300812
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800704975505300808}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.86, y: 0.963}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!50 &800704975505300815
 Rigidbody2D:
   serializedVersion: 4
@@ -112,6 +85,7 @@ GameObject:
   - component: {fileID: 6479683910907371515}
   - component: {fileID: 6479683910907371513}
   - component: {fileID: 6479683910907371512}
+  - component: {fileID: 8393831775194416489}
   m_Layer: 0
   m_Name: GumDrop
   m_TagString: Untagged
@@ -127,8 +101,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6479683910907371519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.55, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6479683912208469437}
@@ -190,8 +164,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 20076fd1005e2174d8f84b1ce6e84269, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 973045151, guid: 1786b04e193a09844823f9d5f85e8a7f, type: 3}
+  m_Color: {r: 0.12111073, g: 0.5943396, b: 0.29852384, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -231,8 +205,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.072, y: 0.946}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1.072, y: 0.946}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -241,6 +215,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.072, y: 0.946}
   m_EdgeRadius: 0
+--- !u!95 &8393831775194416489
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479683910907371519}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13c5f458cfe2910468c6ea4166f7b194, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6479683911793956516
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +248,7 @@ GameObject:
   - component: {fileID: 6479683911793956512}
   - component: {fileID: 6479683911793956527}
   - component: {fileID: 6479683911793956526}
+  - component: {fileID: 5634588844909984595}
   m_Layer: 0
   m_Name: GummyBear
   m_TagString: Untagged
@@ -269,8 +264,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6479683911793956516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.201, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 800704975505300810}
@@ -331,8 +326,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1b9162b9c37b8ca4e93b0c8ef69e5c74, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 1510958008, guid: 22ace2120781a8b40a9bccf6797914b0, type: 3}
+  m_Color: {r: 0.12156863, g: 0.59607846, b: 0.3019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -359,7 +354,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.86, y: 0.963}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.86, y: 0.963}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -382,6 +377,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GummyParent: {fileID: 800704975505300808}
   GummyPlayerScript: {fileID: 0}
+--- !u!95 &5634588844909984595
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479683911793956516}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ef73f0c66baf8b04d80d317c5c0a513b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6479683912208469438
 GameObject:
   m_ObjectHideFlags: 0

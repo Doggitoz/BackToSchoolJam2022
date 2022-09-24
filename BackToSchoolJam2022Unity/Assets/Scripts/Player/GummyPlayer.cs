@@ -13,6 +13,8 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
     public GameObject GummyBearObject;
     public GameObject GumDropObject;
     private GameObject[] GummyObjects;
+    [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
+    public static GameObject LocalPlayerInstance;
 
     //Private vars
     private GummyCharState currentState = GummyCharState.Empty;
@@ -28,6 +30,7 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
     private bool stuckInCandy = false;
     private bool fellInJello = false;
     private bool isMoving = false;
+
 
 
     // Start is called before the first frame update

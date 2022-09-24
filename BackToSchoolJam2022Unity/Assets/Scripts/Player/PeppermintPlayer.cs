@@ -12,6 +12,10 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
     private Rigidbody2D rb;
     private bool isGrounded = true;
     private bool isMoving = false;
+
+    [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
+    public static GameObject LocalPlayerInstance;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

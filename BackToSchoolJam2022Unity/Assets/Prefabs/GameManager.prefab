@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e609f9e006fc0aa448d5d6d23a4f73c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gummyPrefab: {fileID: 800704975505300808, guid: 19076f6be79fead4bb8d611ec4a2df86, type: 3}
+  gummyPrefab: {fileID: 4592457884962344233, guid: 41f1ed606fd0564459bff164dcf52731, type: 3}
   peppermintPrefab: {fileID: 4908182235939533659, guid: 5daca9bac9fc7384ca7ffb10d4b80496, type: 3}
 --- !u!61 &-721220852747427460
 BoxCollider2D:

@@ -8,6 +8,9 @@ TagManager:
   - Bounce
   - Breakable
   - Cotton Candy
+  - Mold
+  - GummyPlayer
+  - Jello
   layers:
   - Default
   - TransparentFX

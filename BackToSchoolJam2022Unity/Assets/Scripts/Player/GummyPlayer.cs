@@ -65,11 +65,6 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
     void Update()
     {
 
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-
         if (fellInJello)
         {
             return;
@@ -77,19 +72,23 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
 
         #region User Input
 
-        if (stuckInCandy && !candyCollider)
+        if (photonView.IsMine)
         {
-            EnableGravity();
-            stuckInCandy = false;
+            isMoving = true;
+            if (stuckInCandy && !candyCollider)
+            {
+                EnableGravity();
+                stuckInCandy = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                TryEnterMold();
+            }
+
+            MovementStuff();
+
         }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            TryEnterMold();
-        }
-
-        MovementStuff();
-
         #endregion
     }
 
@@ -161,15 +160,6 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
         else if (rb.velocity.x > 0)
         {
             sr.flipX = false;
-        }
-
-        if (horizontal != 0 || rb.velocity.magnitude > 0)
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
         }
 
         #endregion

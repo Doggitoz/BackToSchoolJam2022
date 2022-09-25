@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BearMoldIdle
+  m_Name: GumdropJumping
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,14 +20,18 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1028340682, guid: 4637f5ffc77bbc34f994aa75184eb53f, type: 3}
-    - time: 1
-      value: {fileID: 1028340682, guid: 4637f5ffc77bbc34f994aa75184eb53f, type: 3}
+      value: {fileID: 973045151, guid: 1786b04e193a09844823f9d5f85e8a7f, type: 3}
+    - time: 0.033333335
+      value: {fileID: 311390074, guid: 1786b04e193a09844823f9d5f85e8a7f, type: 3}
+    - time: 0.06666667
+      value: {fileID: -629023955, guid: 1786b04e193a09844823f9d5f85e8a7f, type: 3}
+    - time: 0.11666667
+      value: {fileID: -629023955, guid: 1786b04e193a09844823f9d5f85e8a7f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 30
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -42,14 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 1028340682, guid: 4637f5ffc77bbc34f994aa75184eb53f, type: 3}
-    - {fileID: 1028340682, guid: 4637f5ffc77bbc34f994aa75184eb53f, type: 3}
+    - {fileID: 973045151, guid: 1786b04e193a09844823f9d5f85e8a7f, type: 3}
+    - {fileID: 311390074, guid: 1786b04e193a09844823f9d5f85e8a7f, type: 3}
+    - {fileID: -629023955, guid: 1786b04e193a09844823f9d5f85e8a7f, type: 3}
+    - {fileID: -629023955, guid: 1786b04e193a09844823f9d5f85e8a7f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0333333
+    m_StopTime: 0.13333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

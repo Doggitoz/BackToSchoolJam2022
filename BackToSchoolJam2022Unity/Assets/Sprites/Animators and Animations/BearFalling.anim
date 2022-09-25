@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BearMoldIdle
+  m_Name: BearFalling
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1028340682, guid: 4637f5ffc77bbc34f994aa75184eb53f, type: 3}
-    - time: 1
-      value: {fileID: 1028340682, guid: 4637f5ffc77bbc34f994aa75184eb53f, type: 3}
+      value: {fileID: 1510958008, guid: 22ace2120781a8b40a9bccf6797914b0, type: 3}
+    - time: 0.1
+      value: {fileID: -731478709, guid: 22ace2120781a8b40a9bccf6797914b0, type: 3}
+    - time: 0.23333333
+      value: {fileID: -731478709, guid: 22ace2120781a8b40a9bccf6797914b0, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,14 +44,15 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 1028340682, guid: 4637f5ffc77bbc34f994aa75184eb53f, type: 3}
-    - {fileID: 1028340682, guid: 4637f5ffc77bbc34f994aa75184eb53f, type: 3}
+    - {fileID: 1510958008, guid: 22ace2120781a8b40a9bccf6797914b0, type: 3}
+    - {fileID: -731478709, guid: 22ace2120781a8b40a9bccf6797914b0, type: 3}
+    - {fileID: -731478709, guid: 22ace2120781a8b40a9bccf6797914b0, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0333333
+    m_StopTime: 0.26666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

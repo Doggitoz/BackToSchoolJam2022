@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4581658567846271088}
   - component: {fileID: -3122314377268160688}
   - component: {fileID: 9143555958004934025}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PeppermintPlayer
   m_TagString: PeppermintPlayer
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5616206545168535299}
   - component: {fileID: 533129496408864575}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

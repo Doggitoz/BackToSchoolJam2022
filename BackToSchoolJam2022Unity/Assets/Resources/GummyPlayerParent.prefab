@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1031188157003778290}
   - component: {fileID: 1049440936557903552}
   - component: {fileID: 5167825571948282699}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GummyPlayerParent
   m_TagString: GummyPlayer
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 4800045260442169387}
   - component: {fileID: 4800045260442169386}
   - component: {fileID: 8002254503994256059}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GumDrop
   m_TagString: GummyPlayer
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 4800045262134032765}
   - component: {fileID: 4800045262134032764}
   - component: {fileID: 6143839147975873665}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GummyBear
   m_TagString: GummyPlayer
   m_Icon: {fileID: 0}

@@ -1,14 +1,10 @@
-using System;
-using System.Collections;
-
-
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -115,14 +111,41 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        float midpointX = (gummyPlayer.transform.position.x + peppermintPlayer.transform.position.x) / 2;
-        float midpointY = (gummyPlayer.transform.position.y + peppermintPlayer.transform.position.y) / 2;
-        Vector3 playerMidpoint = new Vector3(midpointX, midpointY, -10);
-        float distance = Vector2.Distance(gummyPlayer.transform.position, peppermintPlayer.transform.position);
+        if (isLocalCoop)
+        {
+            float midpointX = (gummyPlayer.transform.position.x + peppermintPlayer.transform.position.x) / 2;
+            float midpointY = (gummyPlayer.transform.position.y + peppermintPlayer.transform.position.y) / 2;
+            Vector3 playerMidpoint = new Vector3(midpointX, midpointY, -10);
+            float distance = Vector2.Distance(gummyPlayer.transform.position, peppermintPlayer.transform.position);
 
-        cam.transform.position = playerMidpoint;
-        cam.transform.localScale = Vector2.one * distance * scaleFactor;
-        
+            cam.transform.position = playerMidpoint;
+            cam.transform.localScale = Vector2.one * distance * scaleFactor;
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                ResetScene();
+            }
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                cam.transform.Translate(Vector2.up * Time.deltaTime);
+            } 
+            else if (Input.GetKey(KeyCode.DownArrow))
+            {
+                cam.transform.Translate(Vector2.down * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                cam.transform.Translate(Vector2.left * Time.deltaTime);
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                cam.transform.Translate(Vector2.right * Time.deltaTime);
+            }
+        }
+
     }
 
     private void Start()

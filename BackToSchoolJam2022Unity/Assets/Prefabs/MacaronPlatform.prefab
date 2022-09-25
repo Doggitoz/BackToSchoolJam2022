@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6459392039388653864}
   - component: {fileID: 6459392039388653865}
   - component: {fileID: 6459392039388653870}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MacaronPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6459392039388653866}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e31d273b90516d4da2eab8413298d45, type: 3}
   m_Name: 
@@ -103,6 +103,8 @@ MonoBehaviour:
   heightToRaise: 2
   heightToLower: 0
   goingUp: 1
+  startsUp: 0
+  automaticRaise: 0
 --- !u!61 &6459392039388653870
 BoxCollider2D:
   m_ObjectHideFlags: 0

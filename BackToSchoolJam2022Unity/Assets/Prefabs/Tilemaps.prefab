@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8305014523651341713}
   - component: {fileID: 8305014523651341712}
   - component: {fileID: 8305014523651341719}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 8305014525002829324}
   - component: {fileID: 8305014525002829331}
   - component: {fileID: 8305014525002829330}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jello
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 8305014525266105935}
   - component: {fileID: 8305014525266105929}
   - component: {fileID: 8305014525266105928}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Decoration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8305014525277778638}
   - component: {fileID: 8305014525277778637}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemaps
   m_TagString: Untagged
   m_Icon: {fileID: 0}

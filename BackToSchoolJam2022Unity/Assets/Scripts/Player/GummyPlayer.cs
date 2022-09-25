@@ -251,12 +251,14 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     private void ToggleGummyState(GummyCharState newState)
     {
-        audio.clip = EnterMold;
-        audio.Play();
+
         if (newState == currentState || newState == GummyCharState.Empty)
         {
             return;
         }
+
+        audio.clip = EnterMold;
+        audio.Play();
 
         foreach (GameObject go in GummyObjects)
         {

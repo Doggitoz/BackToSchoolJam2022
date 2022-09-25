@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject cubePrefab;
     private GameObject gummyPlayer;
     private GameObject peppermintPlayer;
+    [HideInInspector] public bool isLocalCoop = false;
     int help = 0;
 
     #region GameManager Singleton
@@ -106,8 +107,16 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        if (BasicPlayerMovement.LocalPlayerInstance == null)
+        if (PhotonNetwork.InRoom == false)
         {
+            Debug.Log("local");
+            isLocalCoop = true;
+            gummyPlayer = Instantiate(gummyPrefab);
+            peppermintPlayer = Instantiate(peppermintPrefab);
+        }
+        else if (BasicPlayerMovement.LocalPlayerInstance == null)
+        {
+            Debug.Log("multiplayer");
             //Debug.Log("help " + help);
             Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
             //we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate

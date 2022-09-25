@@ -1,12 +1,16 @@
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 
 namespace Com.Rayzor.Candy
 {
     public class Launcher : MonoBehaviourPunCallbacks
     {
+
+        public GameObject gm;
+
         #region Private Serializable Fields
 
         /// <summary>
@@ -110,7 +114,12 @@ namespace Com.Rayzor.Candy
         [SerializeField]
         private GameObject progressLabel;
 
-
+        public void PlayLocal()
+        {
+            GameObject go = Instantiate(gm);
+            go.name = "LocalGM";
+            SceneManager.LoadScene("Room for 2");
+        }
 
         #endregion
 

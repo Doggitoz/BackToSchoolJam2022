@@ -115,10 +115,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
             if (gummyPlayer == null)
             {
+                Debug.Log("Instantiating Gummy Bear");
                 gummyPlayer = PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
             }
             else if (peppermintPlayer == null)
             {
+                Debug.Log("Instantiating Peppermint");
                 peppermintPlayer = PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
             }
             else

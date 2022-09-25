@@ -1,3 +1,10 @@
+/* Original Creator: Idk
+ * Edited by: Ava Fritts
+ * 
+ * Date created: Idk
+ * Date Edited: September 25 2022
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +16,9 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
     //Inspector vars
     public GummyCharState GummyStartState;
     public float maxVertVelocity = 5f;
+
+    [Tooltip("Since the inputs are dictated here, the animations are dictated here. -Ava")]
+    public Animator currentStateAnimator; //Walk, Jump, Fall
 
     public GameObject GummyBearObject;
     public GameObject GumDropObject;
@@ -97,10 +107,12 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
         if (stuckInCandy)
         {
             rb.velocity = Vector3.zero;
+            currentStateAnimator.SetBool("Walk", false);
             return;
         } 
 
         float horizontal = Input.GetAxis("Horizontal") * Time.deltaTime;
+        currentStateAnimator.SetBool("Walk", true);
         gummyInputState.Move(transform, horizontal);
 
         #region Jump Logic
@@ -113,6 +125,7 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
         if (isJumpingUp && rb.velocity.y < 0)
         {
             isJumpingUp = false;
+            currentStateAnimator.SetTrigger("Fall");
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -121,6 +134,8 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
             gummyInputState.Jump(rb);
             isGrounded = false;
             isJumpingUp = true;
+            //God I hope this works -Ava.
+            currentStateAnimator.SetTrigger("Jump");
         }
 
         #endregion
@@ -140,6 +155,7 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
         SpriteRenderer sr = currentCharObject.GetComponent<SpriteRenderer>();
 
         //Idk why I did this instead of making a bool "FacingRight" or smthn
+        //I have a bool for that in the animator. But this is how I did it in my Game... ish. -Ava
         if (horizontal > 0)
         {
             rb.velocity = new Vector2(0.01f, rb.velocity.y);
@@ -151,6 +167,9 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
         else
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
+
+            //I think I can swap to idle here. -Ava
+            currentStateAnimator.SetBool("Walk", false);
         }
 
         if (rb.velocity.x < 0)
@@ -214,11 +233,13 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
             case GummyCharState.GummyBear:
                 GummyBearObject.SetActive(true);
                 gummyInputState = GummyBearObject.GetComponent<GummyBearState>();
+                currentStateAnimator = GummyBearObject.GetComponent<Animator>();
                 currentCharObject = GummyBearObject;
                 break;
             case GummyCharState.GumDrop:
                 GumDropObject.SetActive(true);
                 gummyInputState = GumDropObject.GetComponent<GumDropState>();
+                currentStateAnimator = GumDropObject.GetComponent<Animator>();
                 currentCharObject = GumDropObject;
                 break;
             default:

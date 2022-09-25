@@ -130,19 +130,19 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                cam.transform.Translate(Vector2.up * Time.deltaTime);
+                cam.transform.Translate(Vector2.up * Time.deltaTime * 4);
             } 
             else if (Input.GetKey(KeyCode.DownArrow))
             {
-                cam.transform.Translate(Vector2.down * Time.deltaTime);
+                cam.transform.Translate(Vector2.down * Time.deltaTime * 4);
             }
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                cam.transform.Translate(Vector2.left * Time.deltaTime);
+                cam.transform.Translate(Vector2.left * Time.deltaTime * 4);
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
-                cam.transform.Translate(Vector2.right * Time.deltaTime);
+                cam.transform.Translate(Vector2.right * Time.deltaTime * 4);
             }
         }
 

@@ -145,7 +145,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             {
                 PhotonNetwork.Instantiate(this.cubePrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
             }
-            PhotonNetwork.Instantiate(this.cubePrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
         }
         else
         {

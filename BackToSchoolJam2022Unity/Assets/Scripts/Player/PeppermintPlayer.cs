@@ -135,30 +135,34 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject go = other.gameObject;
-        float absVelX = Mathf.Abs(rb.velocity.x);
-        float absVelY = Mathf.Abs(rb.velocity.y);
-        if (go.CompareTag("Gum"))
+        if (photonView.IsMine)
         {
-            //Will flag game over and respawn later
-            speed = 0;
-            rb.velocity = Vector2.zero;
-        }
-        else if (go.CompareTag("Bounce")) {
-            if (Input.GetAxis("Vertical") < 0)
+            GameObject go = other.gameObject;
+            float absVelX = Mathf.Abs(rb.velocity.x);
+            float absVelY = Mathf.Abs(rb.velocity.y);
+            if (go.CompareTag("Gum"))
             {
-                Jump(jumpForce);
+                //Will flag game over and respawn later
+                speed = 0;
+                rb.velocity = Vector2.zero;
             }
-            else
+            else if (go.CompareTag("Bounce"))
             {
-                Jump(jumpForce * 2);
+                if (Input.GetAxis("Vertical") < 0)
+                {
+                    Jump(jumpForce);
+                }
+                else
+                {
+                    Jump(jumpForce * 2);
+                }
             }
-        }
-        else if (go.CompareTag("Breakable") || go.CompareTag("Cotton Candy"))
-        {
-            if (absVelX > 3 || absVelY > 5) //DO TRIG SHIT LATER
+            else if (go.CompareTag("Breakable") || go.CompareTag("Cotton Candy"))
             {
-                Destroy(go);
+                if (absVelX > 3 || absVelY > 5) //DO TRIG SHIT LATER
+                {
+                    Destroy(go);
+                }
             }
         }
     }

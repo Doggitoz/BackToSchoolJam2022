@@ -40,6 +40,7 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (photonView.IsMine)
         {
+            isMoving = true;
             MovementUpdate();
         }
     }
@@ -82,15 +83,6 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Jump(jumpForce);
-        }
-
-        if (rb.velocity.magnitude != 0)
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
         }
     }
 

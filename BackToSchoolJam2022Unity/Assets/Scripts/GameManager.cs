@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log("Game Manager exists. Deleting...");
         }
         Debug.Log(gm);
+        DontDestroyOnLoad(this.gameObject);
     }//end CheckGameManagerIsInScene()
     #endregion
 

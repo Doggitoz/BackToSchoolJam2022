@@ -12,6 +12,11 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
     private Rigidbody2D rb;
     private bool isGrounded = true;
     private bool isMoving = false;
+    AudioSource audio;
+    public AudioClip jump;
+    public AudioClip bigJump;
+    public AudioClip breakCotton;
+    public AudioClip breakCracker;
 
     GameManager gm;
 
@@ -22,6 +27,8 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
     {
         rb = GetComponent<Rigidbody2D>();
         gm = GameManager.GM;
+        audio = GetComponent<AudioSource>();
+        audio.playOnAwake = false;
 
         // #Important
         // used in GameManager.cs: we keep track of the localPlayer instance to prevent instantiation when levels are synchronized
@@ -103,6 +110,8 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
 
         if (Input.GetKeyDown(jumpkey) && isGrounded)
         {
+            audio.clip = jump;
+            audio.Play();
             Jump(jumpForce);
         }
     }
@@ -173,6 +182,8 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
             }
             else if (go.CompareTag("Bounce"))
             {
+                audio.clip = bigJump;
+                audio.Play();
                 if (Input.GetAxis("Vertical") < 0)
                 {
                     Jump(jumpForce);
@@ -182,8 +193,19 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
                     Jump(jumpForce * 2);
                 }
             }
-            else if (go.CompareTag("Breakable") || go.CompareTag("Cotton Candy"))
+            else if (go.CompareTag("Breakable"))
             {
+                audio.clip = breakCracker;
+                audio.Play();
+                if (absVelX > 3 || absVelY > 5) //DO TRIG SHIT LATER
+                {
+                    Destroy(go);
+                }
+            }
+            else if (go.CompareTag("Cotton Candy"))
+            {
+                audio.clip = breakCotton;
+                audio.Play();
                 if (absVelX > 3 || absVelY > 5) //DO TRIG SHIT LATER
                 {
                     Destroy(go);

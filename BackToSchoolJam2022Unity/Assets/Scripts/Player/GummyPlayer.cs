@@ -23,6 +23,9 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
     public GameObject GummyBearObject;
     public GameObject GumDropObject;
     private GameObject[] GummyObjects;
+    public AudioClip JumpAudio;
+    public AudioClip Stuck;
+    public AudioClip EnterMold;
     [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
     public static GameObject LocalPlayerInstance;
 
@@ -40,6 +43,7 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
     private bool stuckInCandy = false;
     private bool fellInJello = false;
     private bool isMoving = false;
+    private AudioSource audio;
 
 
 
@@ -48,6 +52,8 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
     {
         gm = GameManager.GM;
         rb = GetComponent<Rigidbody2D>();
+        audio = GetComponent<AudioSource>();
+        audio.playOnAwake = false;
         GummyObjects = new GameObject[] {
             GummyBearObject,
             GumDropObject
@@ -157,6 +163,8 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            audio.clip = JumpAudio;
+            audio.Play();
             //Possibly add an abstract class with a Jump() function, allowing seperate types to disable
             gummyInputState.Jump(rb);
             isGrounded = false;
@@ -243,6 +251,8 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     private void ToggleGummyState(GummyCharState newState)
     {
+        audio.clip = EnterMold;
+        audio.Play();
         if (newState == currentState || newState == GummyCharState.Empty)
         {
             return;
@@ -340,6 +350,8 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     public void TouchCottonCandy(Collider2D collision)
     {
+        audio.clip = Stuck;
+        audio.Play();
         candyCollider = collision;
         DisableGravity();
         stuckInCandy = true;

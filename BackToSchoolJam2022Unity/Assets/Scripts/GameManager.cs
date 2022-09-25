@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     [HideInInspector] public bool isLocalCoop = false;
     int help = 0;
     public Camera cam;
+    public AudioClip GameOver;
+    private AudioSource audio;
 
     #region GameManager Singleton
     static private GameManager gm; //refence GameManager
@@ -104,7 +106,10 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void Awake()
     {
+
         CheckGameManagerIsInScene();
+        audio = GetComponent<AudioSource>();
+        audio.playOnAwake = false;
     }
 
     private void Update()
@@ -179,6 +184,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void ResetScene()
     {
+        audio.clip = GameOver;
+        audio.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gummyPlayer.transform.position = Vector2.zero;
         peppermintPlayer.transform.position = Vector2.zero;

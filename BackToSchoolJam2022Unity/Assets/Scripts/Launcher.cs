@@ -58,7 +58,7 @@ namespace Com.Rayzor.Candy
         void Start()
         {
             progressLabel.SetActive(false);
-            controlPanel.SetActive(true);
+            controlPanel.SetActive(true);   
         }
 
         private void OnEnable()

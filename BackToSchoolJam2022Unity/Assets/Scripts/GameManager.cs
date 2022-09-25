@@ -8,8 +8,7 @@ using UnityEngine.SceneManagement;
 
 using Photon.Pun;
 using Photon.Realtime;
-
-
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -129,21 +128,10 @@ public class GameManager : MonoBehaviourPunCallbacks
             //}
 
             //we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-            if (playersSpawned == 0)
+            foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
             {
-                Debug.Log("Instantiating Gummy Bear");
-                gummyPlayer = PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
-                gummyPlayer.name = "Player 1";
-            }
-            else if (playersSpawned == 1)
-            {
-                Debug.Log("Instantiating Peppermint");
-                peppermintPlayer = PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
-                peppermintPlayer.name = "Player 2";
-            }
-            else
-            {
-                PhotonNetwork.Instantiate(this.cubePrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
+                Debug.Log(player.Key);
+                Debug.Log(player.Value);
             }
         }
         else

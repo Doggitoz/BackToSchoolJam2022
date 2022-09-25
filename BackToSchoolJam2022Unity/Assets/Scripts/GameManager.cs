@@ -128,16 +128,14 @@ public class GameManager : MonoBehaviourPunCallbacks
             //}
 
             //we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-            foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
+            Dictionary<int, Player> players = PhotonNetwork.CurrentRoom.Players;
+            if (players.Count == 1)
             {
-                if(player.Key == 1)
-                {
-                    PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
-                }
-                else if (player.Key == 2) 
-                {
-                    PhotonNetwork.Instantiate(this.peppermintPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
-                }
+                PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
+            }
+            else if (players.Count == 2)
+            {
+                PhotonNetwork.Instantiate(this.peppermintPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
             }
         }
         else

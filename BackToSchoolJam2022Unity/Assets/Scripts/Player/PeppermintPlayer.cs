@@ -71,13 +71,18 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
 
-        float newVelo = Mathf.Clamp(rb.velocity.x, -maxHorizontalVelocity, maxHorizontalVelocity);
+        float newVeloX = Mathf.Clamp(rb.velocity.x, -maxHorizontalVelocity, maxHorizontalVelocity);
+        float newVeloY = Mathf.Abs(rb.velocity.y) < 0.1f ? 0f : rb.velocity.y;
 
-        rb.velocity = new Vector2(newVelo, rb.velocity.y);
+        rb.velocity = new Vector2(newVeloX, newVeloY);
 
-        if (rb.velocity.y == 0)
+        if (Mathf.Abs(rb.velocity.y) == 0f)
         {
             isGrounded = true;
+        }
+        else if (Mathf.Abs(rb.velocity.y) > 0.5f)
+        {
+            isGrounded = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -132,6 +137,10 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     #endregion
 
+    public void ResetJump()
+    {
+        isGrounded = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

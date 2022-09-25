@@ -13,6 +13,7 @@ TagManager:
   - Jello
   - Ground
   - PeppermintPlayer
+  - PepperButton
   layers:
   - Default
   - TransparentFX

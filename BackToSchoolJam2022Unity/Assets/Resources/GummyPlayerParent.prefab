@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 8393831775194416489}
   m_Layer: 0
   m_Name: GumDrop
-  m_TagString: Untagged
+  m_TagString: GummyPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 5634588844909984595}
   m_Layer: 0
   m_Name: GummyBear
-  m_TagString: Untagged
+  m_TagString: GummyPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject cubePrefab;
     private GameObject gummyPlayer;
     private GameObject peppermintPlayer;
-    int playersSpawned = 0;
     int help = 0;
 
     #region GameManager Singleton
@@ -161,6 +160,14 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void NextScene()
     {
-
+        string activeScene = SceneManager.GetActiveScene().name;
+        if (activeScene == "Room for 2")
+        {
+            SceneManager.LoadScene("Level 1");
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }

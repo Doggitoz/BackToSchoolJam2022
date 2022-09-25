@@ -187,6 +187,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4581658567846271088, guid: 5daca9bac9fc7384ca7ffb10d4b80496, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4908182235939533659, guid: 5daca9bac9fc7384ca7ffb10d4b80496, type: 3}
       propertyPath: m_Name
       value: Peppermint
@@ -1526,13 +1530,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 298315b295fa64445abc03dfd2a259b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMoveSpeed: 4
+  GummyStartState: 0
   maxVertVelocity: 15
-  jumpForce: 350
-  GummyBear: {fileID: 337113731}
-  GumDrop: {fileID: 1764735960}
-  moveSpeed: 4
-  stuckInCandy: 0
+  GummyBearObject: {fileID: 0}
+  GumDropObject: {fileID: 0}
 --- !u!95 &5976517228483098993
 Animator:
   serializedVersion: 4

@@ -16,10 +16,12 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject gummyPrefab;
     public GameObject peppermintPrefab;
     public GameObject cubePrefab;
+    public float scaleFactor;
     private GameObject gummyPlayer;
     private GameObject peppermintPlayer;
     [HideInInspector] public bool isLocalCoop = false;
     int help = 0;
+    private Camera cam;
 
     #region GameManager Singleton
     static private GameManager gm; //refence GameManager
@@ -102,7 +104,20 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void Awake()
     {
+        //cam.gameObject.SetActive(false);
         CheckGameManagerIsInScene();
+    }
+
+    private void Update()
+    {
+        //float midpointX = (gummyPlayer.transform.position.x - peppermintPlayer.transform.position.x) / 2;
+        //float midpointY = (gummyPlayer.transform.position.y - peppermintPlayer.transform.position.y) / 2;
+        //Vector3 playerMidpoint = new Vector3(midpointX, midpointY);
+        //float distance = Vector2.Distance(gummyPlayer.transform.position, peppermintPlayer.transform.position);
+
+        //cam.transform.position = playerMidpoint;
+        //cam.transform.localScale = Vector3.one * distance * scaleFactor;
+        
     }
 
     private void Start()
@@ -110,6 +125,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.InRoom == false)
         {
             Debug.Log("local");
+            cam.gameObject.SetActive(true);
             isLocalCoop = true;
             gummyPlayer = Instantiate(gummyPrefab);
             peppermintPlayer = Instantiate(peppermintPrefab);

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4030125622601652677}
   m_Layer: 0
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   action: 0
   platform: {fileID: 0}
+  triggeredByGummy: 1
+  triggeredByPepper: 1
 --- !u!61 &4030125622601652677
 BoxCollider2D:
   m_ObjectHideFlags: 0

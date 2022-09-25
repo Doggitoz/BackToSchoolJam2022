@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &800704975505300808
+--- !u!1 &1183872185612169882
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 800704975505300810}
-  - component: {fileID: 800704975505300823}
-  - component: {fileID: 800704975505300815}
-  - component: {fileID: -7692467303328405728}
-  - component: {fileID: -7646824728396033774}
+  - component: {fileID: 1183872185612169880}
+  - component: {fileID: 1183872185612169861}
+  - component: {fileID: 1183872185612169885}
+  - component: {fileID: 1031188157003778290}
+  - component: {fileID: 1049440936557903552}
   m_Layer: 0
   m_Name: GummyPlayerParent
   m_TagString: GummyPlayer
@@ -20,30 +20,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &800704975505300810
+--- !u!4 &1183872185612169880
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800704975505300808}
+  m_GameObject: {fileID: 1183872185612169882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75000304, z: 0}
+  m_LocalPosition: {x: -3.7404752, y: 1.111788, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6479683911793956514}
-  - {fileID: 6479683910907371517}
+  - {fileID: 4800045262134032752}
+  - {fileID: 4800045260442169391}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &800704975505300823
+--- !u!114 &1183872185612169861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800704975505300808}
+  m_GameObject: {fileID: 1183872185612169882}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 298315b295fa64445abc03dfd2a259b7, type: 3}
@@ -51,16 +51,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GummyStartState: 1
   maxVertVelocity: 15
-  GummyBearObject: {fileID: 6479683911793956516}
-  GumDropObject: {fileID: 6479683910907371519}
---- !u!50 &800704975505300815
+  currentStateAnimator: {fileID: 0}
+  GummyBearObject: {fileID: 4800045262134032758}
+  GumDropObject: {fileID: 4800045260442169389}
+--- !u!50 &1183872185612169885
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800704975505300808}
+  m_GameObject: {fileID: 1183872185612169882}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -74,13 +75,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-7692467303328405728
+--- !u!114 &1031188157003778290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800704975505300808}
+  m_GameObject: {fileID: 1183872185612169882}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
@@ -93,18 +94,18 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 800704975505300823}
-  - {fileID: -7646824728396033774}
+  - {fileID: 1183872185612169861}
+  - {fileID: 1049440936557903552}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-7646824728396033774
+--- !u!114 &1049440936557903552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800704975505300808}
+  m_GameObject: {fileID: 1183872185612169882}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
@@ -114,7 +115,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!1 &6479683910907371519
+--- !u!1 &4800045260442169389
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,12 +123,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6479683910907371517}
-  - component: {fileID: 6479683910907371516}
-  - component: {fileID: 6479683910907371515}
-  - component: {fileID: 6479683910907371513}
-  - component: {fileID: 6479683910907371512}
-  - component: {fileID: 8393831775194416489}
+  - component: {fileID: 4800045260442169391}
+  - component: {fileID: 4800045260442169390}
+  - component: {fileID: 4800045260442169385}
+  - component: {fileID: 4800045260442169387}
+  - component: {fileID: 4800045260442169386}
+  - component: {fileID: 8002254503994256059}
   m_Layer: 0
   m_Name: GumDrop
   m_TagString: GummyPlayer
@@ -135,29 +136,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &6479683910907371517
+--- !u!4 &4800045260442169391
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683910907371519}
+  m_GameObject: {fileID: 4800045260442169389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.55, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6479683912208469437}
-  m_Father: {fileID: 800704975505300810}
+  - {fileID: 4800045261743104623}
+  m_Father: {fileID: 1183872185612169880}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6479683910907371516
+--- !u!114 &4800045260442169390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683910907371519}
+  m_GameObject: {fileID: 4800045260442169389}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a00d99573611f904dafbb800e5eea0cb, type: 3}
@@ -165,13 +166,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 150
   moveSpeed: 2
---- !u!212 &6479683910907371515
+--- !u!212 &4800045260442169385
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683910907371519}
+  m_GameObject: {fileID: 4800045260442169389}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -217,34 +218,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6479683910907371513
+--- !u!114 &4800045260442169387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683910907371519}
+  m_GameObject: {fileID: 4800045260442169389}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a352ee0cabd34a0479f65bcf3cde25b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GummyParent: {fileID: 800704975505300808}
+  GummyParent: {fileID: 1183872185612169882}
   GummyPlayerScript: {fileID: 0}
---- !u!61 &6479683910907371512
+--- !u!61 &4800045260442169386
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683910907371519}
+  m_GameObject: {fileID: 4800045260442169389}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.24625105}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -255,16 +256,16 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.072, y: 0.946}
+  m_Size: {x: 0.65, y: 0.4534979}
   m_EdgeRadius: 0
---- !u!95 &8393831775194416489
+--- !u!95 &8002254503994256059
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683910907371519}
+  m_GameObject: {fileID: 4800045260442169389}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 13c5f458cfe2910468c6ea4166f7b194, type: 2}
@@ -277,7 +278,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &6479683911793956516
+--- !u!1 &4800045261743104620
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,12 +286,70 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6479683911793956514}
-  - component: {fileID: 6479683911793956513}
-  - component: {fileID: 6479683911793956512}
-  - component: {fileID: 6479683911793956527}
-  - component: {fileID: 6479683911793956526}
-  - component: {fileID: 5634588844909984595}
+  - component: {fileID: 4800045261743104623}
+  - component: {fileID: 4800045261743104622}
+  m_Layer: 0
+  m_Name: BouncyHead
+  m_TagString: Bounce
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4800045261743104623
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800045261743104620}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4800045260442169391}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4800045261743104622
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800045261743104620}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0021101832, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8776084, y: 0.17702264}
+  m_EdgeRadius: 0
+--- !u!1 &4800045262134032758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4800045262134032752}
+  - component: {fileID: 4800045262134032755}
+  - component: {fileID: 4800045262134032754}
+  - component: {fileID: 4800045262134032765}
+  - component: {fileID: 4800045262134032764}
+  - component: {fileID: 6143839147975873665}
   m_Layer: 0
   m_Name: GummyBear
   m_TagString: GummyPlayer
@@ -298,28 +357,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &6479683911793956514
+--- !u!4 &4800045262134032752
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683911793956516}
+  m_GameObject: {fileID: 4800045262134032758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.201, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 800704975505300810}
+  m_Father: {fileID: 1183872185612169880}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6479683911793956513
+--- !u!114 &4800045262134032755
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683911793956516}
+  m_GameObject: {fileID: 4800045262134032758}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3daa679a7ee2fea4e84bb40c48284845, type: 3}
@@ -327,13 +386,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 350
   moveSpeed: 4
---- !u!212 &6479683911793956512
+--- !u!212 &4800045262134032754
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683911793956516}
+  m_GameObject: {fileID: 4800045262134032758}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -379,20 +438,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6479683911793956527
+--- !u!61 &4800045262134032765
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683911793956516}
+  m_GameObject: {fileID: 4800045262134032758}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.005600989, y: -0.13162419}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -403,30 +462,30 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.86, y: 0.963}
+  m_Size: {x: 0.36918145, y: 0.6997517}
   m_EdgeRadius: 0
---- !u!114 &6479683911793956526
+--- !u!114 &4800045262134032764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683911793956516}
+  m_GameObject: {fileID: 4800045262134032758}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a352ee0cabd34a0479f65bcf3cde25b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GummyParent: {fileID: 800704975505300808}
+  GummyParent: {fileID: 1183872185612169882}
   GummyPlayerScript: {fileID: 0}
---- !u!95 &5634588844909984595
+--- !u!95 &6143839147975873665
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683911793956516}
+  m_GameObject: {fileID: 4800045262134032758}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ef73f0c66baf8b04d80d317c5c0a513b, type: 2}
@@ -439,61 +498,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &6479683912208469438
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6479683912208469437}
-  - component: {fileID: 6479683912208469436}
-  m_Layer: 0
-  m_Name: BouncyHead
-  m_TagString: Bounce
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6479683912208469437
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683912208469438}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6479683910907371517}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &6479683912208469436
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479683912208469438}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0021101832, y: 0.41148868}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8776084, y: 0.17702264}
-  m_EdgeRadius: 0

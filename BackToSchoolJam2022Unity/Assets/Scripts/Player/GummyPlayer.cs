@@ -96,13 +96,40 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
                 TryEnterMold();
             }
 
-            MovementStuff();
+            MovementStuff(Input.GetAxis("Horizontal") * Time.deltaTime);
 
         }
+
+        if(gm.isLocalCoop)
+        {
+            if (stuckInCandy && !candyCollider)
+            {
+                EnableGravity();
+                stuckInCandy = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                TryEnterMold();
+            }
+
+            float horizontal = 0f;
+            if (Input.GetKey(KeyCode.A))
+            {
+                Debug.Log("Moving left");
+                horizontal = -1f;
+            } 
+            else if (Input.GetKey(KeyCode.D))
+            {
+                horizontal = 1f;
+            }
+            MovementStuff(horizontal * Time.deltaTime);
+        }
+
         #endregion
     }
 
-    public void MovementStuff()
+    public void MovementStuff(float horizontal)
     {
         if (stuckInCandy)
         {
@@ -111,8 +138,8 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
             return;
         } 
 
-        float horizontal = Input.GetAxis("Horizontal") * Time.deltaTime;
         currentStateAnimator.SetBool("Walk", true);
+        Debug.Log("here");
         gummyInputState.Move(transform, horizontal);
 
         #region Jump Logic
@@ -143,12 +170,12 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
         float newVelo = Mathf.Clamp(rb.velocity.y, -maxVertVelocity, maxVertVelocity);
         rb.velocity = new Vector2(rb.velocity.x, newVelo);
 
-        //Respawns the player up if falls off map
-        if (transform.position.y < -10)
-        {
-            //transform.position = new Vector3(transform.position.x, 10, transform.position.z);
-            Die();
-        }
+        ////Respawns the player up if falls off map
+        //if (transform.position.y < -10)
+        //{
+        //    //transform.position = new Vector3(transform.position.x, 10, transform.position.z);
+        //    Die();
+        //}
 
 
         #region Flip Sprite

@@ -13,12 +13,15 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
     private bool isGrounded = true;
     private bool isMoving = false;
 
+    GameManager gm;
+
     [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
     public static GameObject LocalPlayerInstance;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        gm = GameManager.GM;
 
         // #Important
         // used in GameManager.cs: we keep track of the localPlayer instance to prevent instantiation when levels are synchronized
@@ -41,13 +44,26 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
         if (photonView.IsMine)
         {
             isMoving = true;
-            MovementUpdate();
+            MovementUpdate(Input.GetAxis("Horizontal"), KeyCode.Space);
+        }
+        else if (gm.isLocalCoop)
+        {
+            float horizontal = 0f;
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                Debug.Log("Moving left");
+                horizontal = -1f;
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                horizontal = 1f;
+            }
+            MovementUpdate(horizontal, KeyCode.UpArrow);
         }
     }
 
-    private void MovementUpdate()
+    private void MovementUpdate(float horizontal, KeyCode jumpkey)
     {
-        float horizontal = Input.GetAxis("Horizontal");
         float vX = rb.velocity.x;
         float vY = rb.velocity.y;
 
@@ -85,7 +101,7 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
             isGrounded = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(jumpkey) && isGrounded)
         {
             Jump(jumpForce);
         }
@@ -144,7 +160,7 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (photonView.IsMine)
+        if (photonView.IsMine || gm.isLocalCoop)
         {
             GameObject go = other.gameObject;
             float absVelX = Mathf.Abs(rb.velocity.x);
@@ -173,6 +189,19 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
                     Destroy(go);
                 }
             }
+            else if (go.CompareTag("Button"))
+            {
+                go.GetComponent<ButtonPress>().TriggerEffect(CharType.Peppermint);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        GameObject go = collision.gameObject;
+        if (go.CompareTag("Button"))
+        {
+            go.GetComponent<ButtonPress>().ExitEffect(CharType.Peppermint);
         }
     }
 

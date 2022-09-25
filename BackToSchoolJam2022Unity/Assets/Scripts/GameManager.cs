@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [Tooltip("The prefab to use for representing the player")]
     public GameObject gummyPrefab;
     public GameObject peppermintPrefab;
+    public GameObject cubePrefab;
     private GameObject gummyPlayer;
     private GameObject peppermintPlayer;
     int playersSpawned = 0;
@@ -112,8 +113,18 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log("help " + help);
             Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
             // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-            if (gummyPlayer == null) {}
-            PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
+            if (gummyPlayer == null)
+            {
+                gummyPlayer = PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
+            }
+            else if (peppermintPlayer == null)
+            {
+                peppermintPlayer = PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
+            }
+            else
+            {
+                PhotonNetwork.Instantiate(this.cubePrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
+            }
         }
         else
         {

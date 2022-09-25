@@ -22,6 +22,7 @@ public class GummyTriggerDetection : MonoBehaviourPunCallbacks
             GameObject go = collision.gameObject;
             if (go.CompareTag("Jello"))
             {
+                Debug.Log("Touched jello");
                 GummyPlayerScript.TouchJello();
             }
             else if (go.CompareTag("Cotton Candy"))

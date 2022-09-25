@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         CheckGameManagerIsInScene();
         audio = GetComponent<AudioSource>();
         audio.playOnAwake = false;
+        DontDestroyOnLoad(cam);
     }
 
     private void Update()
@@ -187,8 +188,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         audio.clip = GameOver;
         audio.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        gummyPlayer.transform.position = Vector2.zero;
-        peppermintPlayer.transform.position = Vector2.zero;
+        gummyPlayer.transform.position = Vector2.up * 3;
+        peppermintPlayer.transform.position = Vector2.up * 3;
     }
 
     public void NextScene()
@@ -196,7 +197,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         string activeScene = SceneManager.GetActiveScene().name;
         if (activeScene == "Room for 2")
         {
-            SceneManager.LoadScene("Level 1");
+            SceneManager.LoadScene("LevelOne");
         }
         else
         {

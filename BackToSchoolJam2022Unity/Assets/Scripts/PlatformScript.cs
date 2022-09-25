@@ -11,6 +11,7 @@ public class PlatformScript : MonoBehaviour
     private float currentHeight = 0f;
     public bool goingUp = true;
     private Vector2 startPosition;
+    public bool startsUp = false;
     public bool automaticRaise = false;
 
 
@@ -43,11 +44,25 @@ public class PlatformScript : MonoBehaviour
         {
             if (!isEnabled)
             {
-                currentHeight -= Time.deltaTime * moveSpeed;
+                if (startsUp)
+                {
+                    currentHeight += Time.deltaTime * moveSpeed;
+                } 
+                else
+                {
+                    currentHeight -= Time.deltaTime * moveSpeed;
+                }
             }
             else
             {
-                currentHeight += Time.deltaTime * moveSpeed;
+                if (startsUp)
+                {
+                    currentHeight -= Time.deltaTime * moveSpeed;
+                }
+                else
+                {
+                    currentHeight += Time.deltaTime * moveSpeed;
+                }
             }
         }
 

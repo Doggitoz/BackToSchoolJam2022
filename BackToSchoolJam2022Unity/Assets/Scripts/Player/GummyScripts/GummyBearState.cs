@@ -13,7 +13,6 @@ public class GummyBearState : GummyBaseState
 
     public override void Jump(Rigidbody2D rb)
     {
-        Debug.Log("Jump gummy bear");
         rb.AddForce(Vector2.up * jumpForce);
 
     }

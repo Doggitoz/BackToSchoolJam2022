@@ -13,7 +13,6 @@ public class GumDropState : GummyBaseState
 
     public override void Jump(Rigidbody2D rb)
     {
-        Debug.Log("Jump gum drop");
         rb.AddForce(Vector2.up * jumpForce);
     }
 

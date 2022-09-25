@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 using UnityEngine.SceneManagement;
 
-public class GummyPlayer : MonoBehaviour
+public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
 {
     //Inspector vars
     public GummyCharState GummyStartState;
@@ -12,6 +13,8 @@ public class GummyPlayer : MonoBehaviour
     public GameObject GummyBearObject;
     public GameObject GumDropObject;
     private GameObject[] GummyObjects;
+    [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
+    public static GameObject LocalPlayerInstance;
 
     //Private vars
     private GummyCharState currentState = GummyCharState.Empty;
@@ -26,6 +29,8 @@ public class GummyPlayer : MonoBehaviour
     private GameManager gm;
     private bool stuckInCandy = false;
     private bool fellInJello = false;
+    private bool isMoving = false;
+
 
 
     // Start is called before the first frame update
@@ -38,16 +43,32 @@ public class GummyPlayer : MonoBehaviour
             GumDropObject
         };
         EnableGravity();
+
+        // #Important
+        // used in GameManager.cs: we keep track of the localPlayer instance to prevent instantiation when levels are synchronized
+        if (photonView.IsMine)
+        {
+            GummyPlayer.LocalPlayerInstance = this.gameObject;
+        }
+        // #Critical
+        // we flag as don't destroy on load so that instance survives level synchronization, thus giving a seamless experience when levels load.
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
     {
         ToggleGummyState(GummyStartState);
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (!photonView.IsMine)
+        {
+            return;
+        }
 
         if (fellInJello)
         {
@@ -142,6 +163,15 @@ public class GummyPlayer : MonoBehaviour
             sr.flipX = false;
         }
 
+        if (horizontal != 0 || rb.velocity.magnitude > 0)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
         #endregion
 
     }
@@ -221,7 +251,44 @@ public class GummyPlayer : MonoBehaviour
         gm.ResetScene();
     }
 
-    
+    #region Photon Stuff
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            // We own this player: send the others our data
+            stream.SendNext(isMoving);
+        }
+        else
+        {
+            // Network player, receive data
+            this.isMoving = (bool)stream.ReceiveNext();
+        }
+    }
+
+    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode loadingMode)
+    {
+        this.CalledOnLevelWasLoaded(scene.buildIndex);
+    }
+
+    void CalledOnLevelWasLoaded(int level)
+    {
+        // check if we are outside the Arena and if it's the case, spawn around the center of the arena in a safe zone
+        if (!Physics.Raycast(transform.position, -Vector3.up, 5f))
+        {
+            transform.position = new Vector3(0f, 5f, 0f);
+        }
+    }
+
+    public override void OnDisable()
+    {
+        // Always call the base to remove callbacks
+        base.OnDisable();
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    #endregion
 
 
     #region Trigger/Collision Handling
@@ -254,39 +321,6 @@ public class GummyPlayer : MonoBehaviour
     }
 
     #endregion
-
-
-
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    GameObject go = collision.gameObject;
-    //    if (go.CompareTag("Jello"))
-    //    {
-    //        TouchJello();
-    //    }
-    //    else if (go.CompareTag("Cotton Candy"))
-    //    {
-    //        candyCollider = collision;
-    //        DisableGravity();
-    //        stuckInCandy = true;
-    //    }
-    //    else if (go.CompareTag("Mold"))
-    //    {
-    //        touchingMold = true;
-    //        moldCollider = collision;
-    //    }
-    //}
-
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    GameObject go = collision.gameObject;
-
-    //    if (go.CompareTag("Mold"))
-    //    {
-    //        touchingMold = false;
-    //    }
-    //}
 }
 
 public enum GummyCharState

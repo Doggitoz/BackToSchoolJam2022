@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     [Tooltip("The prefab to use for representing the player")]
     public GameObject gummyPrefab;
     public GameObject peppermintPrefab;
+    private GameObject gummyPlayer;
+    private GameObject peppermintPlayer;
     int playersSpawned = 0;
     int help = 0;
 
@@ -110,6 +112,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log("help " + help);
             Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
             // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
+            if (gummyPlayer == null) {}
             PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
         }
         else
@@ -128,7 +131,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
             }
             Debug.LogFormat("PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount);
-            PhotonNetwork.LoadLevel("Room for " + PhotonNetwork.CurrentRoom.PlayerCount);
+            PhotonNetwork.LoadLevel("Room for " + 2);
         }
 
 

@@ -74,6 +74,10 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
         float vX = rb.velocity.x;
         float vY = rb.velocity.y;
 
+        float absVelX = Mathf.Abs(rb.velocity.x);
+        float absVelY = Mathf.Abs(rb.velocity.y);
+        Debug.Log("Velocity x: " + absVelX + "  Velocity y: " + absVelY);
+
         //Add or subtract velocity based on horizontal input
         if (horizontal > 0)
         {
@@ -195,18 +199,18 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
             }
             else if (go.CompareTag("Breakable"))
             {
-                audio.clip = breakCracker;
-                audio.Play();
-                if (absVelX > 3 || absVelY > 5) //DO TRIG SHIT LATER
+                if (absVelX > 6 || absVelY > 5) //DO TRIG SHIT LATER
                 {
                     Destroy(go);
+                    audio.clip = breakCracker;
+                    audio.Play();
                 }
             }
             else if (go.CompareTag("Cotton Candy"))
             {
                 audio.clip = breakCotton;
                 audio.Play();
-                if (absVelX > 3 || absVelY > 5) //DO TRIG SHIT LATER
+                if (absVelX > 3 || absVelY > 10) //DO TRIG SHIT LATER
                 {
                     Destroy(go);
                 }

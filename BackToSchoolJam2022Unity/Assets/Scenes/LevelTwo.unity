@@ -35679,10 +35679,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnabled: 0
   moveSpeed: 2
-  heightToRaise: 2
-  heightToLower: 0
+  heightToRaise: 0
+  heightToLower: -4
   goingUp: 1
-  startsUp: 0
+  startsUp: 1
   automaticRaise: 0
 --- !u!1001 &1707082898
 PrefabInstance:

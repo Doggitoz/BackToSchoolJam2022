@@ -3726,7 +3726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4908182235939533659, guid: 5daca9bac9fc7384ca7ffb10d4b80496, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4908182235939533661, guid: 5daca9bac9fc7384ca7ffb10d4b80496, type: 3}
       propertyPath: m_RootOrder
@@ -3833,6 +3833,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GummyPlayerParent (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1183872185612169882, guid: 6d64280779e6352478b98dc2b0c13878, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d64280779e6352478b98dc2b0c13878, type: 3}
 --- !u!1001 &4030125622078338595
@@ -3909,7 +3913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5760138518737974289, guid: 893d5ef09fcc6494e95190d1c4a1ac83, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.00004
+      value: 2.250009
       objectReference: {fileID: 0}
     - target: {fileID: 5760138518737974289, guid: 893d5ef09fcc6494e95190d1c4a1ac83, type: 3}
       propertyPath: m_LocalPosition.y

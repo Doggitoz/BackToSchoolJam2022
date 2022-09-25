@@ -257,8 +257,11 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
             return;
         }
 
-        audio.clip = EnterMold;
-        audio.Play();
+        if (currentState != GummyCharState.Empty)
+        {
+            audio.clip = EnterMold;
+            audio.Play();
+        }
 
         foreach (GameObject go in GummyObjects)
         {

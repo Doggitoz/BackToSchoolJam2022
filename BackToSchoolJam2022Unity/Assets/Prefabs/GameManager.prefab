@@ -132,5 +132,6 @@ MonoBehaviour:
   gummyPrefab: {fileID: 1183872185612169882, guid: 6d64280779e6352478b98dc2b0c13878, type: 3}
   peppermintPrefab: {fileID: 4908182235939533659, guid: 5daca9bac9fc7384ca7ffb10d4b80496, type: 3}
   cubePrefab: {fileID: 4592457884962344233, guid: 41f1ed606fd0564459bff164dcf52731, type: 3}
-  scaleFactor: 0
+  scaleFactor: 1
   isLocalCoop: 0
+  cam: {fileID: 562915759183317109}

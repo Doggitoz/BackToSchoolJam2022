@@ -334,9 +334,8 @@ public class GummyPlayer : MonoBehaviourPunCallbacks, IPunObservable
     //Trigger Enter
     public void TouchJello()
     {
-        fellInJello = true;
-        DisableGravity();
         rb.velocity = Vector3.zero;
+        gm.ResetScene();
     }
 
     public void TouchCottonCandy(Collider2D collision)

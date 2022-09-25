@@ -193,6 +193,10 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
             {
                 go.GetComponent<ButtonPress>().TriggerEffect(CharType.Peppermint);
             }
+            else if (go.CompareTag("Jello"))
+            {
+                gm.ResetScene();
+            }
         }
     }
 

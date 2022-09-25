@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GameObject peppermintPlayer;
     [HideInInspector] public bool isLocalCoop = false;
     int help = 0;
-    private Camera cam;
+    public Camera cam;
 
     #region GameManager Singleton
     static private GameManager gm; //refence GameManager
@@ -104,19 +104,18 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void Awake()
     {
-        //cam.gameObject.SetActive(false);
         CheckGameManagerIsInScene();
     }
 
     private void Update()
     {
-        //float midpointX = (gummyPlayer.transform.position.x - peppermintPlayer.transform.position.x) / 2;
-        //float midpointY = (gummyPlayer.transform.position.y - peppermintPlayer.transform.position.y) / 2;
-        //Vector3 playerMidpoint = new Vector3(midpointX, midpointY);
-        //float distance = Vector2.Distance(gummyPlayer.transform.position, peppermintPlayer.transform.position);
+        float midpointX = (gummyPlayer.transform.position.x + peppermintPlayer.transform.position.x) / 2;
+        float midpointY = (gummyPlayer.transform.position.y + peppermintPlayer.transform.position.y) / 2;
+        Vector3 playerMidpoint = new Vector3(midpointX, midpointY, -10);
+        float distance = Vector2.Distance(gummyPlayer.transform.position, peppermintPlayer.transform.position);
 
-        //cam.transform.position = playerMidpoint;
-        //cam.transform.localScale = Vector3.one * distance * scaleFactor;
+        cam.transform.position = playerMidpoint;
+        cam.transform.localScale = Vector2.one * distance * scaleFactor;
         
     }
 
@@ -181,6 +180,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gummyPlayer.transform.position = Vector2.zero;
+        peppermintPlayer.transform.position = Vector2.zero;
     }
 
     public void NextScene()

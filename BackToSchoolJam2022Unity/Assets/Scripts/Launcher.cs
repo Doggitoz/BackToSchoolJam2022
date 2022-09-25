@@ -58,7 +58,7 @@ namespace Com.Rayzor.Candy
         void Start()
         {
             progressLabel.SetActive(false);
-            controlPanel.SetActive(true);
+            controlPanel.SetActive(true);   
         }
 
         private void OnEnable()
@@ -151,7 +151,7 @@ namespace Com.Rayzor.Candy
 
                 // #Critical
                 // Load the Room Level.
-                PhotonNetwork.LoadLevel("Room for 1");
+                PhotonNetwork.LoadLevel("Room for 2");
             }
         }
 

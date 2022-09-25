@@ -40,6 +40,7 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (photonView.IsMine)
         {
+            isMoving = true;
             MovementUpdate();
         }
     }
@@ -70,27 +71,23 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
 
-        float newVelo = Mathf.Clamp(rb.velocity.x, -maxHorizontalVelocity, maxHorizontalVelocity);
+        float newVeloX = Mathf.Clamp(rb.velocity.x, -maxHorizontalVelocity, maxHorizontalVelocity);
+        float newVeloY = Mathf.Abs(rb.velocity.y) < 0.1f ? 0f : rb.velocity.y;
 
-        rb.velocity = new Vector2(newVelo, rb.velocity.y);
+        rb.velocity = new Vector2(newVeloX, newVeloY);
 
-        if (rb.velocity.y == 0)
+        if (Mathf.Abs(rb.velocity.y) == 0f)
         {
             isGrounded = true;
+        }
+        else if (Mathf.Abs(rb.velocity.y) > 0.5f)
+        {
+            isGrounded = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Jump(jumpForce);
-        }
-
-        if (rb.velocity.magnitude != 0)
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
         }
     }
 
@@ -140,33 +137,41 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     #endregion
 
+    public void ResetJump()
+    {
+        isGrounded = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject go = other.gameObject;
-        float absVelX = Mathf.Abs(rb.velocity.x);
-        float absVelY = Mathf.Abs(rb.velocity.y);
-        if (go.CompareTag("Gum"))
+        if (photonView.IsMine)
         {
-            //Will flag game over and respawn later
-            speed = 0;
-            rb.velocity = Vector2.zero;
-        }
-        else if (go.CompareTag("Bounce")) {
-            if (Input.GetAxis("Vertical") < 0)
+            GameObject go = other.gameObject;
+            float absVelX = Mathf.Abs(rb.velocity.x);
+            float absVelY = Mathf.Abs(rb.velocity.y);
+            if (go.CompareTag("Gum"))
             {
-                Jump(jumpForce);
+                //Will flag game over and respawn later
+                speed = 0;
+                rb.velocity = Vector2.zero;
             }
-            else
+            else if (go.CompareTag("Bounce"))
             {
-                Jump(jumpForce * 2);
+                if (Input.GetAxis("Vertical") < 0)
+                {
+                    Jump(jumpForce);
+                }
+                else
+                {
+                    Jump(jumpForce * 2);
+                }
             }
-        }
-        else if (go.CompareTag("Breakable") || go.CompareTag("Cotton Candy"))
-        {
-            if (absVelX > 3 || absVelY > 5) //DO TRIG SHIT LATER
+            else if (go.CompareTag("Breakable") || go.CompareTag("Cotton Candy"))
             {
-                Destroy(go);
+                if (absVelX > 3 || absVelY > 5) //DO TRIG SHIT LATER
+                {
+                    Destroy(go);
+                }
             }
         }
     }

@@ -11,6 +11,9 @@ TagManager:
   - Mold
   - GummyPlayer
   - Jello
+  - Ground
+  - PeppermintPlayer
+  - PepperButton
   layers:
   - Default
   - TransparentFX

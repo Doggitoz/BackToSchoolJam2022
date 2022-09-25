@@ -11,6 +11,7 @@ public class PlatformScript : MonoBehaviour
     private float currentHeight = 0f;
     public bool goingUp = true;
     private Vector2 startPosition;
+    public bool automaticRaise = false;
 
 
     private void Awake()
@@ -19,18 +20,39 @@ public class PlatformScript : MonoBehaviour
     }
     private void Update()
     {
-        if (!isEnabled)
+        if (automaticRaise)
         {
-            currentHeight -= Time.deltaTime * moveSpeed;
+            if (goingUp)
+            {
+                currentHeight += Time.deltaTime * moveSpeed;
+                if (currentHeight >= heightToRaise)
+                {
+                    goingUp = false;
+                }
+            }
+            else
+            {
+                currentHeight -= Time.deltaTime * moveSpeed;
+                if (currentHeight <= heightToLower)
+                {
+                    goingUp = true;
+                }
+            }
         }
         else
         {
-            currentHeight += Time.deltaTime * moveSpeed;
+            if (!isEnabled)
+            {
+                currentHeight -= Time.deltaTime * moveSpeed;
+            }
+            else
+            {
+                currentHeight += Time.deltaTime * moveSpeed;
+            }
         }
-        currentHeight = Mathf.Clamp(currentHeight, heightToLower, heightToRaise);
-        Debug.Log(currentHeight);
-        transform.position = new Vector2(transform.position.x, startPosition.y + currentHeight);
 
+        currentHeight = Mathf.Clamp(currentHeight, heightToLower, heightToRaise);
+        transform.position = new Vector2(transform.position.x, startPosition.y + currentHeight);
     }
 
 }

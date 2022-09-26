@@ -201,7 +201,7 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
             {
                 if (absVelX > 6 || absVelY > 5) //DO TRIG SHIT LATER
                 {
-                    Destroy(go);
+                    PhotonNetwork.Destroy(go);
                     audio.clip = breakCracker;
                     audio.Play();
                 }
@@ -212,7 +212,7 @@ public class PeppermintPlayer : MonoBehaviourPunCallbacks, IPunObservable
                 audio.Play();
                 if (absVelX > 3 || absVelY > 10) //DO TRIG SHIT LATER
                 {
-                    Destroy(go);
+                    PhotonNetwork.Destroy(go);
                 }
             }
             else if (go.CompareTag("Button"))

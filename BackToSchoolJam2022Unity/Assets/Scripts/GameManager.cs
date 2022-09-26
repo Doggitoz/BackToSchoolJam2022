@@ -172,13 +172,13 @@ public class GameManager : MonoBehaviourPunCallbacks
                 {
                     if (p.Key == 1)
                     {
-                        GameObject player = PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
+                        GameObject player = PhotonNetwork.Instantiate(this.peppermintPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
                         player.name = "Player 1";
 
                     }
                     else if (p.Key == 2)
                     {
-                        GameObject player = PhotonNetwork.Instantiate(this.peppermintPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
+                        GameObject player = PhotonNetwork.Instantiate(this.gummyPrefab.name, new Vector2(0f, 5f), Quaternion.identity, 0);
                         player.name = "Player 2";
                     }
                 }

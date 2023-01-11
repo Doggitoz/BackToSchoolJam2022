@@ -131,12 +131,12 @@ TextureImporter:
       name: GumdropSheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 300
-        width: 300
-        height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 51
+        y: 310
+        width: 194
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,12 +152,12 @@ TextureImporter:
       name: GumdropSheet_1
       rect:
         serializedVersion: 2
-        x: 300
-        y: 300
-        width: 300
-        height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 351
+        y: 309
+        width: 194
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,12 +173,12 @@ TextureImporter:
       name: GumdropSheet_2
       rect:
         serializedVersion: 2
-        x: 600
-        y: 300
-        width: 300
-        height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 651
+        y: 306
+        width: 194
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: GumdropSheet_3
       rect:
         serializedVersion: 2
-        x: 900
-        y: 300
-        width: 300
-        height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 951
+        y: 306
+        width: 194
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: GumdropSheet_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 300
-        height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 53
+        y: 11
+        width: 194
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: GumdropSheet_5
       rect:
         serializedVersion: 2
-        x: 300
-        y: 0
-        width: 300
-        height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 357
+        y: 4
+        width: 187
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,12 +257,12 @@ TextureImporter:
       name: GumdropSheet_6
       rect:
         serializedVersion: 2
-        x: 600
-        y: 0
-        width: 300
-        height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 667
+        y: 45
+        width: 161
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,12 +278,12 @@ TextureImporter:
       name: GumdropSheet_7
       rect:
         serializedVersion: 2
-        x: 900
-        y: 0
-        width: 300
-        height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 965
+        y: 76
+        width: 168
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,12 +299,12 @@ TextureImporter:
       name: GumdropSheet_8
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 0
-        width: 300
-        height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1269
+        y: 28
+        width: 161
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

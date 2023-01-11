@@ -20,4 +20,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AvasLevel.unity
     guid: 1c7f6be5a071f0a4ba248e748be611f7
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 7ee82a91761f53e45b73d8b2ba51e4a9, type: 2}

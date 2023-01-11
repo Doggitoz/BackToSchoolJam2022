@@ -1,109 +1,74 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-using Photon.Realtime;
+using UnityEngine.InputSystem;
 
-public class BasicPlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D))]
+public class BasicPlayerMovement : MonoBehaviour
 {
-    //Inspector vars
-    public float moveSpeed = 1.0f;
-    public bool gravityEnabled = true;
-    public float maxVelocity;
-
     //Public vars
-    [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
-    public static GameObject LocalPlayerInstance;
+    public PlayerSO playerType;
+    public InputActionAsset input;
+    public bool colorOverride;
+    public Color color;
+    [HideInInspector] public float speedModifier = 1f; //This might be better to make private and have a getter/setter
 
-    //Private vars
-    private float velocity;
-    private Rigidbody2D rb;
-    private bool isMoving = false;
-#if UNITY_5_4_OR_NEWER
-    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode loadingMode)
-    {
-        this.CalledOnLevelWasLoaded(scene.buildIndex);
-    }
-#endif
+    //Components
+    SpriteRenderer sr;
+    Animator animator;
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    #region Monobehaviour Methods
+
+    void Awake()
     {
-        if (stream.IsWriting)
-        {
-            // We own this player: send the others our data
-            stream.SendNext(isMoving);
-        }
-        else
-        {
-            // Network player, receive data
-            this.isMoving = (bool)stream.ReceiveNext();
-        }
+        sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     void Start()
     {
-#if UNITY_5_4_OR_NEWER
-        // Unity 5.4 has a new scene management. register a method to call CalledOnLevelWasLoaded.
-        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
-#endif
-    }
-
-
-
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-
-        // #Important
-        // used in GameManager.cs: we keep track of the localPlayer instance to prevent instantiation when levels are synchronized
-        if (photonView.IsMine)
+        ChangePlayer(playerType);
+        if (colorOverride)
         {
-            BasicPlayerMovement.LocalPlayerInstance = this.gameObject;
+            SetPlayerColor(color);
         }
-        // #Critical
-        // we flag as don't destroy on load so that instance survives level synchronization, thus giving a seamless experience when levels load.
-        DontDestroyOnLoad(this.gameObject);
-
+        speedModifier = 1f;
     }
 
     void Update()
     {
-        if (photonView.IsMine)
+        float horizontal = Input.GetAxis("Horizontal") * playerType.baseSpeed * speedModifier * Time.deltaTime;
+
+        Debug.Log(horizontal);
+
+        if (Mathf.Abs(horizontal) > 0)
         {
-            isMoving = true;
-            float horizontal = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-
-            transform.Translate(Vector2.right * horizontal);
-        }
-        
-
-    }
-
-
-void OnLevelWasLoaded(int level)
-{
-    this.CalledOnLevelWasLoaded(level);
-}
-
-
-
-    void CalledOnLevelWasLoaded(int level)
-    {
-        // check if we are outside the Arena and if it's the case, spawn around the center of the arena in a safe zone
-        if (!Physics.Raycast(transform.position, -Vector3.up, 5f))
+            animator.SetFloat("Speed", 1);
+        } 
+        else
         {
-            transform.position = new Vector3(0f, 5f, 0f);
+            animator.SetFloat("Speed", 0);
         }
+
+        transform.Translate(Vector2.right * horizontal);
     }
-    
 
+    #endregion
 
-#if UNITY_5_4_OR_NEWER
-    public override void OnDisable()
+    void ChangePlayer(PlayerSO newPlayer)
     {
-        // Always call the base to remove callbacks
-        base.OnDisable();
-        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+        playerType = newPlayer;
+        sr.sprite = playerType.sprite;
+        animator.runtimeAnimatorController = playerType.animController;
+        Destroy(GetComponent<PolygonCollider2D>());
+        gameObject.AddComponent<PolygonCollider2D>();
+        GetComponent<PolygonCollider2D>().offset = new Vector2(0, 0.06f);
     }
-#endif
+
+    void SetPlayerColor(Color color)
+    {
+        sr.color = color;
+    }
 }

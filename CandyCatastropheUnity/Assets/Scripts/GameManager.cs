@@ -158,7 +158,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             gummyPlayer = Instantiate(gummyPrefab);
             peppermintPlayer = Instantiate(peppermintPrefab);
         }
-        else if (BasicPlayerMovement.LocalPlayerInstance == null)
+        else
         {
             Debug.Log("multiplayer");
             //Debug.Log("help " + help);
@@ -183,10 +183,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                     }
                 }
             }
-        }
-        else
-        {
-            Debug.LogFormat("Ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
         }
     }
 

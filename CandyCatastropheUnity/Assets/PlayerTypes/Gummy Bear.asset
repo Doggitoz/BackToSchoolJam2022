@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27aa6939509a334418d26330e651e9e9, type: 3}
   m_Name: Gummy Bear
   m_EditorClassIdentifier: 
-  baseSpeed: 5
+  speedupTime: 0.5
   baseJumpHeight: 10
+  maxSpeed: 5
   sprite: {fileID: 1510958008, guid: 22ace2120781a8b40a9bccf6797914b0, type: 3}
   animController: {fileID: 9100000, guid: 4f3336b5dfb20694ca8f8613ca84cceb, type: 2}
   footstepAudio: {fileID: 0}

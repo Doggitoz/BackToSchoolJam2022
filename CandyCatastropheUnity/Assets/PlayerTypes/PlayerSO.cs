@@ -6,8 +6,9 @@ using UnityEngine;
 public class PlayerSO : ScriptableObject
 {
     [Header("Values")]
-    public float baseSpeed;
+    public float speedupTime;
     public float baseJumpHeight;
+    [Range(0.1f, 10)] public float maxSpeed;
 
     [Header("Art")]
     public Sprite sprite;

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27aa6939509a334418d26330e651e9e9, type: 3}
   m_Name: Gumdrop
   m_EditorClassIdentifier: 
-  baseSpeed: 5
+  speedupTime: 1
   baseJumpHeight: 10
+  maxSpeed: 2
   sprite: {fileID: 973045151, guid: 1786b04e193a09844823f9d5f85e8a7f, type: 3}
   animController: {fileID: 9100000, guid: 6cee00e686609c9468f804c5081542f3, type: 2}
   footstepAudio: {fileID: 0}

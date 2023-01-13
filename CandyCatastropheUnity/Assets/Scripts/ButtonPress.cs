@@ -5,7 +5,7 @@ using UnityEngine;
 public class ButtonPress : MonoBehaviour
 {
 
-    public Action action;
+    public SystemAction action;
     public GameObject platform;
 
     public bool triggeredByGummy = true;
@@ -23,7 +23,7 @@ public class ButtonPress : MonoBehaviour
             return;
         }
 
-        if (action == Action.Platform)
+        if (action == SystemAction.Platform)
         {
             platform.GetComponent<PlatformScript>().isEnabled = true;
         }
@@ -41,7 +41,7 @@ public class ButtonPress : MonoBehaviour
         }
 
 
-        if (action == Action.Platform)
+        if (action == SystemAction.Platform)
         {
             platform.GetComponent<PlatformScript>().isEnabled = false;
         }
@@ -49,7 +49,7 @@ public class ButtonPress : MonoBehaviour
 
 }
 
-public enum Action
+public enum SystemAction
 {
     Platform
 }
